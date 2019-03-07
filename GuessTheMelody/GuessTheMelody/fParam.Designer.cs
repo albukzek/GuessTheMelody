@@ -98,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(518, 419);
             this.Controls.Add(this.bOk);
             this.Controls.Add(this.bCancel);
             this.Controls.Add(this.checkBoxAllDirectory);
