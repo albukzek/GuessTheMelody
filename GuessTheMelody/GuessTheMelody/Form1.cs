@@ -14,6 +14,8 @@ namespace GuessTheMelody
     {
 
         fParam param = new fParam();
+        fGame fg = new fGame();
+
         public fMain()
         {
             InitializeComponent();
@@ -22,7 +24,7 @@ namespace GuessTheMelody
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            fg.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
