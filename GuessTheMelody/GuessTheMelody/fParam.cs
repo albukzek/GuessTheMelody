@@ -25,6 +25,7 @@ namespace GuessTheMelody
 
         private void bOk_Click(object sender, EventArgs e)
         {
+            Victorina.WriteParam();
             this.Hide();
         }
 
