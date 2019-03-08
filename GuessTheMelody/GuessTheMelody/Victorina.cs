@@ -19,10 +19,17 @@ namespace GuessTheMelody
 
         static public void RealMusic()
         {
-            string[] music_files = Directory.GetFiles(lastFolder, "*.mp3",
-                    allDirectories ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
-            msc.Clear();
-            msc.AddRange(music_files);
+            try
+            {
+                string[] music_files = Directory.GetFiles(lastFolder, "*.mp3",
+                        allDirectories ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
+                msc.Clear();
+                msc.AddRange(music_files);
+            }
+            catch(Exception ex)
+            {
+                
+            }
         }
 
         static string regKeyName = "Software\\LisCompany\\Victorina";
@@ -59,7 +66,7 @@ namespace GuessTheMelody
                     gameDuration = (int)rk.GetValue("GameDuration");
                     randomStart = Convert.ToBoolean(rk.GetValue("RandomStart"));
                     musicDuration = (int)rk.GetValue("MusicDuration");
-                    allDirectories = Convert.ToBoolean("AllDirectories");
+                    allDirectories = Convert.ToBoolean(rk.GetValue("AllDirectories"));
                 }
             }
             finally
