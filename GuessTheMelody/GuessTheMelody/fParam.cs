@@ -67,7 +67,11 @@ namespace GuessTheMelody
 
         private void fParam_Load(object sender, EventArgs e)
         {
+
             Set();
+            listBox1.Items.Clear();
+            listBox1.Items.AddRange(Victorina.msc.ToArray());
+
         }
     }
 }
