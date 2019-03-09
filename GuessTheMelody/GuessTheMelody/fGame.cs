@@ -26,10 +26,14 @@ namespace GuessTheMelody
         }
         void MakeMusic()
         {
-            int x = rnd.Next(0, Victorina.msc.Count());
-            WMP.URL = Victorina.msc[x];
-            Victorina.msc.RemoveAt(x);
-            lblMelodyCount.Text = Victorina.msc.Count.ToString();
+            if (Victorina.msc.Count == 0) EndGame();
+            else
+            {
+                int x = rnd.Next(0, Victorina.msc.Count());
+                WMP.URL = Victorina.msc[x];
+                Victorina.msc.RemoveAt(x);
+                lblMelodyCount.Text = Victorina.msc.Count.ToString();
+            }
         }
 
         private void fGame_FormClosed(object sender, FormClosedEventArgs e)
@@ -45,11 +49,19 @@ namespace GuessTheMelody
             progressBar1.Maximum = Victorina.gameDuration;
 ;        }
 
+        void EndGame()
+        {
+            timer1.Start();
+            WMP.Ctlcontrols.stop();
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             progressBar1.Value++;
             if(progressBar1.Value==progressBar1.Maximum)
-            { timer1.Start(); }
+            {
+                EndGame();
+            }
         }
 
         private void bPause_Click(object sender, EventArgs e)
