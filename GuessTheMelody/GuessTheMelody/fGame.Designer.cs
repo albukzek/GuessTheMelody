@@ -41,6 +41,7 @@
             this.lblMelodyCount = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.labelMusicDuration = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,11 +147,22 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // labelMusicDuration
+            // 
+            this.labelMusicDuration.AutoSize = true;
+            this.labelMusicDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelMusicDuration.Location = new System.Drawing.Point(237, 51);
+            this.labelMusicDuration.Name = "labelMusicDuration";
+            this.labelMusicDuration.Size = new System.Drawing.Size(31, 33);
+            this.labelMusicDuration.TabIndex = 10;
+            this.labelMusicDuration.Text = "0";
+            // 
             // fGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(513, 385);
+            this.Controls.Add(this.labelMusicDuration);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.lblMelodyCount);
             this.Controls.Add(this.bContinue);
@@ -187,5 +199,6 @@
         private System.Windows.Forms.Label lblMelodyCount;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label labelMusicDuration;
     }
 }

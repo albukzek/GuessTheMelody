@@ -13,6 +13,7 @@ namespace GuessTheMelody
     public partial class fGame : Form
     {
         Random rnd = new Random();
+        int musicDuration = Victorina.musicDuration;
         public fGame()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace GuessTheMelody
             if (Victorina.msc.Count == 0) EndGame();
             else
             {
+                musicDuration = Victorina.musicDuration;
                 int x = rnd.Next(0, Victorina.msc.Count());
                 WMP.URL = Victorina.msc[x];
                 Victorina.msc.RemoveAt(x);
@@ -47,7 +49,8 @@ namespace GuessTheMelody
             progressBar1.Value = 0;
             progressBar1.Minimum = 0;
             progressBar1.Maximum = Victorina.gameDuration;
-;        }
+            labelMusicDuration.Text = musicDuration.ToString();
+        }
 
         void EndGame()
         {
@@ -58,10 +61,14 @@ namespace GuessTheMelody
         private void timer1_Tick(object sender, EventArgs e)
         {
             progressBar1.Value++;
-            if(progressBar1.Value==progressBar1.Maximum)
+            musicDuration--;
+            labelMusicDuration.Text = musicDuration.ToString();
+            if (progressBar1.Value==progressBar1.Maximum)
             {
                 EndGame();
+                return;
             }
+            if (musicDuration == 0) MakeMusic();
         }
 
         private void bPause_Click(object sender, EventArgs e)
