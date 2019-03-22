@@ -14,6 +14,8 @@ namespace GuessTheMelody
     {
         Random rnd = new Random();
         int musicDuration = Victorina.musicDuration;
+        bool[] gamers = new bool[2];
+
         public fGame()
         {
             InitializeComponent();
@@ -35,6 +37,8 @@ namespace GuessTheMelody
                 WMP.URL = Victorina.msc[x];
                 Victorina.msc.RemoveAt(x);
                 lblMelodyCount.Text = Victorina.msc.Count.ToString();
+                gamers[0] = false;
+                gamers[1] = false;
             }
         }
 
@@ -83,29 +87,36 @@ namespace GuessTheMelody
 
         private void fGame_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData == Keys.A)
+            if (timer1.Enabled==true)
             {
-                GamePause();
-                fMessage fm = new fMessage();
-                fm.lGamer.Text = "Игрок 1";
-                if (fm.ShowDialog() == DialogResult.Yes)
+
+
+                if (gamers[0]==false && e.KeyData == Keys.A)
                 {
-                    labelGamer1.Text = Convert.ToString(Convert.ToInt32(labelGamer1.Text) + 1);
-                    MakeMusic();
+                    GamePause();
+                    fMessage fm = new fMessage();
+                    fm.lGamer.Text = "Игрок 1";
+                    gamers[0] = true;
+                    if (fm.ShowDialog() == DialogResult.Yes)
+                    {
+                        labelGamer1.Text = Convert.ToString(Convert.ToInt32(labelGamer1.Text) + 1);
+                        MakeMusic();
+                    }
+                    GamePlay();
                 }
-                GamePlay();
-            }
-            if (e.KeyData == Keys.P)
-            {
-                GamePause();
-                fMessage fm = new fMessage();
-                fm.lGamer.Text = "Игрок 2";
-                if (fm.ShowDialog() == DialogResult.Yes)
+                if (gamers[1]==false && e.KeyData == Keys.P)
                 {
-                    labelGamer2.Text = Convert.ToString(Convert.ToInt32(labelGamer2.Text) + 1);
-                    MakeMusic();
+                    GamePause();
+                    fMessage fm = new fMessage();
+                    fm.lGamer.Text = "Игрок 2";
+                    gamers[1] = true;
+                    if (fm.ShowDialog() == DialogResult.Yes)
+                    {
+                        labelGamer2.Text = Convert.ToString(Convert.ToInt32(labelGamer2.Text) + 1);
+                        MakeMusic();
+                    }
+                    GamePlay();
                 }
-                GamePlay();
             }
 
 
