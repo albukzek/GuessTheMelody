@@ -85,6 +85,7 @@
             this.labelGamer2.Size = new System.Drawing.Size(31, 33);
             this.labelGamer2.TabIndex = 3;
             this.labelGamer2.Text = "0";
+            this.labelGamer2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelGamer1_MouseClick);
             // 
             // labelGamer1
             // 
@@ -95,6 +96,7 @@
             this.labelGamer1.Size = new System.Drawing.Size(31, 33);
             this.labelGamer1.TabIndex = 4;
             this.labelGamer1.Text = "0";
+            this.labelGamer1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.labelGamer1_MouseClick);
             // 
             // label4
             // 
