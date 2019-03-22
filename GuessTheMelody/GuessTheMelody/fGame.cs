@@ -100,9 +100,9 @@ namespace GuessTheMelody
                 GamePause();
                 fMessage fm = new fMessage();
                 fm.lGamer.Text = "Игрок 2";
-                if (fm.ShowDialog() == DialogResult.No)
+                if (fm.ShowDialog() == DialogResult.Yes)
                 {
-                    
+                    labelGamer2.Text = Convert.ToString(Convert.ToInt32(labelGamer2.Text) + 1);
                     MakeMusic();
                 }
                 GamePlay();
