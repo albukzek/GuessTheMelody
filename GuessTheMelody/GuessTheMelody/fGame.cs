@@ -35,6 +35,7 @@ namespace GuessTheMelody
                 musicDuration = Victorina.musicDuration;
                 int x = rnd.Next(0, Victorina.msc.Count());
                 WMP.URL = Victorina.msc[x];
+                Victorina.answer = WMP.URL;
                 Victorina.msc.RemoveAt(x);
                 lblMelodyCount.Text = Victorina.msc.Count.ToString();
                 gamers[0] = false;
